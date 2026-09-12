@@ -9,7 +9,7 @@ Result: [ paste output ]
 
 ## Remote Test (from your local machine)
 ```bash
-curl http://<public-ip>
+curl http://56.228.35.86/
 ```
 Result: [ paste output ]
 
