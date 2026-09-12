@@ -9,7 +9,7 @@ A comprehensive, production-grade guide and hands-on laboratory documentation co
 This repository is structured into modular domains representing foundational competencies for Cloud, DevOps, and Systems Engineers:
 
 ```
-linux-networking-cloud-infrastructure/
+Module_2-CodoMax/
 │
 ├── README.md                              # Project overview, AL2023 architecture, and navigation
 │
