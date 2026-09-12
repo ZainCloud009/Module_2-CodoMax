@@ -1,0 +1,9 @@
+# Never commit private keys or credentials
+*.pem
+*.key
+.env
+id_rsa*
+
+# OS files
+.DS_Store
+Thumbs.db
