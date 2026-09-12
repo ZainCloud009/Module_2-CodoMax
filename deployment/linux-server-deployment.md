@@ -21,7 +21,7 @@ A complete, production-grade deployment walkthrough detailing Amazon Linux 2023 
                                          │
                                          ▼
             ┌────────────────────────────────────────────────────────┐
-            │            AWS EC2 Virtual Machine (t2.micro)          │
+            │            AWS EC2 Virtual Machine (t3.micro)          │
             │                Amazon Linux 2023 (AL2023)              │
             │                                                        │
             │  ┌──────────────────────────────────────────────────┐  │
@@ -52,9 +52,9 @@ A complete, production-grade deployment walkthrough detailing Amazon Linux 2023 
 1. Open the **AWS Management Console** $\rightarrow$ **EC2** $\rightarrow$ **Launch Instance**.
 2. **Instance Name:** `amazon-linux-2023-server`.
 3. **Application and OS Image (AMI):** Select **Amazon Linux 2023 AMI** (HVM, SSD Volume Type, 64-bit x86).
-4. **Instance Type:** Select `t2.micro` (1 vCPU, 1 GiB Memory, AWS Free Tier eligible).
+4. **Instance Type:** Select `t3.micro` (1 vCPU, 1 GiB Memory, AWS Free Tier eligible).
 5. **Key Pair (Login):**
-   - Choose or create your key pair: `my-key.pem` (RSA or ED25519).
+   - Choose or create your key pair: `testingserver.pem` (RSA or ED25519).
    - Download the private key and store it securely (e.g., in `~/.ssh/`).
 6. **Network Settings:**
    - Auto-assign Public IP: **Enable**.
@@ -95,17 +95,17 @@ On Amazon Linux 2023, the default administrative user is **`ec2-user`** (not `ub
 OpenSSH refuses to use private keys that are world-readable:
 ```bash
 # On Linux / macOS / Git Bash:
-chmod 400 ~/.ssh/my-key.pem
+chmod 400 ~/.ssh/testingserver.pem
 
 # On Windows PowerShell (if required):
-# icacls.exe ~/.ssh/my-key.pem /reset
-# icacls.exe ~/.ssh/my-key.pem /grant:r "$($env:USERNAME):(R)"
-# icacls.exe ~/.ssh/my-key.pem /inheritance:r
+# icacls.exe ~/.ssh/testingserver.pem /reset
+# icacls.exe ~/.ssh/testingserver.pem /grant:r "$($env:USERNAME):(R)"
+# icacls.exe ~/.ssh/testingserver.pem /inheritance:r
 ```
 
 ### 2. Connect to the Server
 ```bash
-ssh -i ~/.ssh/my-key.pem ec2-user@<YOUR_EC2_PUBLIC_IP>
+ssh -i "testingserver.pem" ec2-user@ec2-56-228-35-86.eu-north-1.compute.amazonaws.com
 ```
 
 When prompted with `Are you sure you want to continue connecting (yes/no)?`, type **`yes`**.
